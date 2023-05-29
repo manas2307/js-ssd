@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>DOM Projects</title>
+</head>
+
+<body>
+
+    <p>You Tube Subscribe Button</p>
+    <button onclick="Subscribe()" class="js-subscribe-button">Subscribe</button>
+
+
+    <p>Amazon Shipping Calculator</p>
+    <input placeholder="cost of order" type="text" class="js-cost-input" onkeydown="handleCostKeydown(event);">
+    <button onclick="CalculateTotal();
+    
+    ">Calculate</button>
+    <p class="js-total-cost"></p>
+
+
+    <script>
+        // String(25) //converts 25 into string
+        // console.log('25' - 5) //auto-converts 25 into number
+        // console.log('25' + 5) //keeps 25 as string
+
+        // window.document; //window is a built in object in js
+        // window.console.log('window');
+        // window.alert;
+
+
+        function handleCostKeydown(event) {
+
+            if (event.key === 'Enter') {
+                CalculateTotal();
+            }
+        }
+
+        function CalculateTotal() {
+            const inputElement = document.querySelector('.js-cost-input');
+            let cost = Number(inputElement.value);
+
+            if (cost < 40) {
+                cost = cost + 10;
+            }
+            document.querySelector('.js-total-cost')
+                .innerHTML = `$${cost}`;
+
+        }
+
+
+
+        function Subscribe() {
+            const buttonElement = document.querySelector('.js-subscribe-button');
+
+            if (buttonElement.innerText === 'Subscribe') {
+                buttonElement.innerText = 'Subscribed';
+            }
+            else {
+                buttonElement.innerText = 'Subscribe';
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
